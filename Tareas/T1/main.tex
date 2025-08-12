@@ -1,0 +1,45 @@
+%! TeX program = lualatex
+\documentclass[digital]{fc-hw-template}
+
+\title{Tarea}
+\author{Marcos López Merino}
+\instructor{Dr. Ulisses Gutiérrez Hernández}
+\duedate{2025-08-18}
+\group{8280}
+\assignno{1}
+\semester{2026--1}
+\subject{Dinámica de Medios Deformables}
+
+\usepackage{tensor}
+
+\newcommand*{\ev}[1]{\boldvect\vect{e}_{#1}}
+\newcommand*{\evc}[1]{\boldvect\vect{e}^{#1}}
+\newcommand*{\vb}[1]{\boldvect\vect{#1}}
+\newcommand*{\nev}[1]{\abs{\ev{#1}}}
+\newcommand*{\nevc}[1]{\abs{\evc{#1}}}
+\newcommand*{\dotp}[2]{#1 \cdot #2}
+\newcommand*{\crossp}[2]{#1 \mathbin{\mul} #2}
+% Comando para producto tensorial
+% \tensopt{A}{B} → A ⊗ B
+% \tensopt{A}{B}[C] → (A ⊗ B) ⊗ C
+% \tensopt{A}{B}[C][nopar] → A ⊗ B ⊗ C * El cuarto argumentos puede ser cualquier cosa
+\NewDocumentCommand{\tensprod}{m m o o}{%
+  \IfNoValueTF{#3}
+    {#1 \mathbin{\mathop{\otimes}} #2}%
+    {%
+      \IfNoValueTF{#4}
+        {\left(#1 \mathbin{\mathop{\otimes}} #2\right) \mathbin{\mathop{\otimes}} #3}%
+        {#1 \mathbin{\mathop{\otimes}} #2 \mathbin{\mathop{\otimes}} #3}%
+    }%
+}
+
+\begin{document}
+\maketitle
+
+\subfile{problemas/problema_01.tex}
+\subfileinclude{problemas/problema_02.tex}
+\subfileinclude{problemas/problema_03.tex}
+\subfileinclude{problemas/problema_04.tex}
+\subfileinclude{problemas/problema_05.tex}
+
+\end{document}
