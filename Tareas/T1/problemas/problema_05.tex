@@ -4,8 +4,117 @@
 \begin{problema}
 	\begin{enumerate}
 		\item Muestra que \(\varepsilon_{ijk}\varepsilon_{pqk} = \delta_{ip}\delta_{jq} - \delta{iq}\delta_{jp}\),
+
+		      \startsolution
+
+		      Sabemos que podemos escribir el determinante de una matriz que permite permutar filas y columnas como:
+
+		      \begin{equation*}
+			      \varepsilon_{mno}\varepsilon_{pqr}\det(\mathbb{A}) =
+			      \begin{vNiceMatrix}
+				      A_{mp} & A_{mq} & A_{mr} \\
+				      A_{np} & A_{nq} & A_{nr} \\
+				      A_{op} & A_{oq} & A_{or}
+			      \end{vNiceMatrix}
+		      \end{equation*}
+
+		      Nos fijamos qué sucede si \(\mathbb{A}_{ij} = \delta_{ij}\) tal que \(\det(\mathbb{A}) = 1\), i.e.
+
+		      \begin{align*}
+			      \varepsilon_{mno}\varepsilon_{pqr}\det(\mathbb{A}) & =
+			      \begin{vNiceMatrix}
+				      \delta_{mp} & \delta_{mq} & \delta_{mr} \\
+				      \delta_{np} & \delta_{nq} & \delta_{nr} \\
+				      \delta_{op} & \delta_{oq} & \delta_{or}
+			      \end{vNiceMatrix},                \\
+			      \varepsilon_{mno}\varepsilon_{pqr}                 & =
+			      \delta_{mp}[\delta_{nq}\delta_{or} - \delta_{nr}\delta_{oq}]
+			      - \delta_{mq}[\delta_{np}\delta_{or} - \delta_{nr}\delta_{op}]
+			      + \delta_{mr}[\delta_{np}\delta_{oq} - \delta_{nq}\delta_{op}].
+		      \end{align*}
+
+		      Veamos que sucede si \(r = o\), que es el caso que nos interesa,
+
+		      \begin{align*}
+			      \varepsilon_{mnk}\varepsilon_{pqk} & =
+			      \delta_{mp}[\delta_{nq}\delta_{kk} - \delta_{nk}\delta_{kq}]
+			      - \delta_{mq}[\delta_{np}\delta_{kk} - \delta_{nk}\delta_{kp}]
+			      + \delta_{mk}[\delta_{np}\delta_{kq} - \delta_{nq}\delta_{kp}],                         \\
+			                                         & = 3\delta_{mp}\delta_{nq} - \delta_{mp}\delta_{nq}
+			      - 3\delta_{mq}\delta_{np} - \delta_{mq}\delta_{np}
+			      - \delta_{np}\delta_{mq} - \delta_{nq}\delta_{mp},                                      \\
+			      \varepsilon_{mnk}\varepsilon_{pqk} & = \delta_{mp}\delta_{nq} - \delta_{mq}\delta_{np}.
+		      \end{align*}
+
+		      Renombrando índices \(m = i, n = j\),
+
+		      \begin{empheq}[box=\mainresult]{equation}
+			      \varepsilon_{ijk}\varepsilon_{pqk}  = \delta_{ip}\delta_{jq} - \delta_{iq}\delta_{jp}.
+			      \label{eq:epsilon-delta}
+		      \end{empheq}
+
 		\item Muestra que \(B_{ij} = \varepsilon_{ijk}v_{j}\) es antisimétrico.
+
+		      \startsolution
+
+		      Para determinar si \(B_{ik}\) es antisimétrico se debe cumplir que
+
+		      \begin{equation*}
+			      B_{ik} = - B_{ki}.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{equation*}
+			      B_{ki} = \varepsilon_{kji}v_{j}, pero
+		      \end{equation*}
+
+		      pero \(\varepsilon_{kji} = - \varepsilon_{ijk}\). Por lo que,
+
+		      \begin{align*}
+			      B_{ki} & = - \varepsilon_{ijk}v_{j}, \\
+			      B_{ki} & = - B_{ik},                 \\
+			      \Aboxed{B_{ik} = - B_{ki}.}
+		      \end{align*}
 		\item Sea \(B_{ij}\) antisimétrico, y considera que el vector \(v_{i} = \varepsilon_{ijk}B_{jk}\). Muestra que \(B_{mq} = \tfrac{1}{2}\varepsilon_{mqi}v_{i}\).
+
+		      \startsolution
+
+		      Para obtener la expresión para \(B_{mq}\), multiplicamos \(v_{i}\) por \(\varepsilon_{mqi}\), tal que
+
+		      \begin{align*}
+			      \varepsilon_{mqi}v_{i} & = \varepsilon_{mqi}\varepsilon_{ijk}B_{jk}, \\
+			                             & = \varepsilon_{mqi}\varepsilon_{jki}B_{jk}.
+		      \end{align*}
+
+		      Usando la \zcref{eq:epsilon-delta} tenemos que \(\varepsilon_{mqi}\varepsilon_{jki}\) es
+
+		      \begin{equation*}
+			      \varepsilon_{mqi}\varepsilon_{jki} = \delta_{mj}\delta_{qk} - \delta_{mk}\delta_{qj}.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{align*}
+			      \varepsilon_{mqi}v_{i} & = (\delta_{mj}\delta_{qk} - \delta_{mk}\delta_{qj})B_{jk},     \\
+			                             & = \delta_{mj}\delta_{qk}B_{jk} - \delta_{mj}\delta_{qk}B_{jk}, \\
+			                             & = B_{mq} - B_{qm}.
+		      \end{align*}
+
+		      Recordando que \(B_{mq}\) es antisimétrico, \(B_{qm} = - B_{mq}\), entonces
+
+		      \begin{align*}
+			      \varepsilon_{mqi}v_{i} & = B_{mq} - (- B_{mq}), \\
+			      \varepsilon_{mqi}v_{i} & = 2B_{mq}.
+		      \end{align*}
+
+		      Resolviendo para \(B_{mq}\) tenemos
+
+		      \begin{empheq}[box=\mainresult]{equation*}
+			      B_{mq} = \dfrac{1}{2}\varepsilon_{mqi}v_{i}.
+		      \end{empheq}
+
+
 	\end{enumerate}
 \end{problema}
 \end{document}
