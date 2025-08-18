@@ -6,13 +6,233 @@
 	Prueba las siguientes identidades vectoriales usando notación de índices:
 
 	\begin{enumerate}
-		\item \(\dotp{ ( \crossp{\vect{a}}{\vect{b}} ) }{( \crossp{\vect{c}}{\vect{d}} )} = \),
+		\item \(\dotp{ ( \crossp{\vect{a}}{\vect{b}} ) }{( \crossp{\vect{c}}{\vect{d}} )} = (\dotp{\vb{a}}{\vb{c}})(\dotp{\vb{b}}{\vb{d}}) - (\dotp{\vb{a}}{\vb{d}})(\dotp{\vb{b}}{\vb{c}})\),
+
+		      \startsolution
+		      \arrowvect
+
+		      Recordemos que el producto cruz en notación de índices está dado como
+
+		      \begin{equation*}
+			      \crossp{\vect{a}}{\vect{b}} = \varepsilon_{ijk}a_{i}b_{j}\ek.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{align*}
+			      \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{c}}{\va{d}})} & = (\varepsilon_{ijk}a_{i}b_{j}\ek) \cdot (\varepsilon_{pqm}c_{p}d_{q}\eu{m}), \\
+			                                                                  & = \varepsilon_{ijk}\varepsilon_{pqm}a_{i}b_{j}c_{p}d_{q}\dotp{\ek}{\eu{m}}.
+		      \end{align*}
+
+		      Además sabemos que \(\dotp{\ek}{\eu{m}} = \delta_{km}\),
+
+		      \begin{align*}
+			      \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{c}}{\va{d}})} & = \varepsilon_{ijk}\varepsilon_{pqm}a_{i}b_{j}c_{p}d_{q}\delta_{km}, \\
+			                                                                  & = \varepsilon_{ijk}\varepsilon_{pqk}a_{i}b_{j}c_{p}d_{q}.
+		      \end{align*}
+
+
+		      Usando la \zcref{eq:epsilon-delta} tenemos que
+
+		      \begin{align}
+			      \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{c}}{\va{d}})}             & =
+			      (\delta_{ip}\delta_{jq} - \delta_{iq}\delta_{jp})a_{i}b_{j}c_{p}d_{q},\nonumber                                                           \\
+			                                                                              & = \delta_{ip}\delta_{jq}a_{i}b_{j}c_{p}d_{q}
+			      - \delta_{iq}\delta_{jp}a_{i}b_{j}c_{p}d_{q},\nonumber                                                                                    \\
+			                                                                              & = a_{p}b_{q}c_{p}d_{q} - a_{q}b_{p}c_{p}d_{q},\nonumber         \\
+			                                                                              & = (a_{p}c_{p})(b_{q}d_{q}) - (a_{q}d_{q})(b_{p}c_{p}),\nonumber \\
+			      \Aboxedmain{\dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{c}}{\va{d}})} & =
+				      (\dotp{\va{a}}{\va{c})}(\dotp{\va{b}}{\va{d}})
+				      - (\dotp{\va{a}}{\va{d})}(\dotp{\va{b}}{\va{c}}).}\label{eq:res-4a}
+		      \end{align}
+
 		\item \(\crossp{\vect{a}}{(\crossp{\vect{b}}{\vect{c}})} = (\dotp{\vb{a}}{\vb{c}})\vb{b}
 		      - (\dotp{\vb{a}}{\vb{b}})\vb{c}\),
+
+		      \startsolution
+
+		      Desarrollando la expresión tenemos que
+
+		      \begin{align*}
+			      \crossp{\va{a}}{(\crossp{\va{b}}{\va{c}})} & = (a_{i}\eu{i}) \mul
+			      (\crossp{b_{m}\eu{m}}{c_{n}\eu{n}}),                                                                 \\
+			                                                 & = (a_{i}\eu{i}) \mul
+			      (b_{m}c_{n}\crossp{\eu{m}}{\eu{n}}),                                                                 \\
+			                                                 & = (a_{i}\eu{i}) \mul
+			      (\varepsilon_{mnp}b_{m}c_{n}\eu{p}),                                                                 \\
+			                                                 & = \varepsilon_{mnp}a_{i}b_{m}c_{n}
+			      \crossp{\ei}{\eu{p}},                                                                                \\
+			                                                 & = \varepsilon_{mnp}\varepsilon_{ipk}a_{i}b_{m}c_{n}\ek.
+		      \end{align*}
+
+		      Usamos nuevamente la \zcref{eq:epsilon-delta}, pero antes hacemos
+		      permutación en los índices de \(\varepsilon_{ipk} = \varepsilon_{kpi}\), entonces
+
+		      \begin{align}
+			      \crossp{\va{a}}{(\crossp{\va{b}}{\va{c}})}             & = (\delta_{mk}\delta_{ni}
+			      - \delta_{mi}\delta_{nk})a_{i}b_{m}c_{n}\ek,\nonumber                                               \\
+			                                                             & = \delta_{mk}\delta_{ni}a_{i}b_{m}c_{n}\ek
+			      - \delta_{mi}\delta_{nk}a_{i}b_{m}c_{n}\ek,\nonumber                                                \\
+			                                                             & = a_{n}b_{k}c_{n}\ek
+			      - a_{m}b_{m}c_{k}\ek,\nonumber                                                                      \\
+			                                                             & = (a_{n}c_{n})b_{k}\ek
+			      - (a_{m}b_{m})c_{k}\ek,\nonumber                                                                    \\
+			      \Aboxedmain{\crossp{\va{a}}{(\crossp{\va{b}}{\va{c}})} & =
+				      (\dotp{\va{a}}{\va{c}})\va{b}
+				      - (\dotp{\va{a}}{\va{b}})\va{c}.}\label{eq:res-4b}
+		      \end{align}
+
+
 		\item \((\dotp{\vb{a}}{\vb{b}})^{2} + \dotp{(\crossp{\vb{a}}{\vb{b}})}{(\crossp{\vb{a}}{\vb{b}})} = \abs{\vb{a}}^{2}\abs{\vb{b}}^{2}\),
+
+		      \startsolution
+
+		      Iniciamos desarrollando \(\dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{a}}{\va{b}})}\),
+
+		      \begin{align*}
+			      \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{a}}{\va{b}})} & =
+			      (\varepsilon_{ijk}a_{i}b_{j}\ek) \cdot (\varepsilon_{rst}a_{r}b_{s}\eu{t}),                                  \\
+			                                                                  & = \varepsilon_{ijk}
+			      \varepsilon_{rst}
+			      a_{i}b_{j}a_{r}b_{s}
+			      \delta_{kt},                                                                                                 \\
+			                                                                  & = \varepsilon_{ijk}
+			      \varepsilon_{rsk}
+			      a_{i}b_{j}a_{r}b_{s},                                                                                        \\
+			                                                                  & =
+			      \delta_{ir}\delta_{js}
+			      a_{i}b_{j}a_{r}b_{s}
+			      - \delta_{is}\delta_{jr}
+			      a_{i}b_{j}a_{r}b_{s},                                                                                        \\
+			                                                                  & = a_{r}b_{s}a_{r}b_{s} - a_{s}b_{r}a_{r}b_{s}, \\
+			                                                                  & = a_{r}a_{r}b_{s}b_{s} - a_{s}b_{s}a_{r}b_{r}.
+		      \end{align*}
+
+
+		      Entonces,
+
+		      \begin{align}
+			      (\dotp{\va{a}}{\va{b}})^{2} + \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{a}}{\va{b}})}             & =
+			      (\dotp{a_{i}\ei}{b_{j}\ej})(\dotp{a_{k}\ek}{b_{l}\eu{l}})
+			      + a_{r}a_{r}b_{s}b_{s} - a_{s}b_{s}a_{r}b_{r},\nonumber                                                                                                            \\
+			                                                                                                            & = (a_{i}b_{i})(a_{k}b_{k})
+			      + + a_{r}a_{r}b_{s}b_{s} - a_{s}b_{s}a_{r}b_{r},\nonumber                                                                                                          \\
+			                                                                                                            & = (\dotp{\va{a}}{\va{b}})
+			      (\dotp{\va{a}}{\va{b}})
+			      + (\dotp{\va{a}}{\va{a}})(\dotp{\va{b}}{\va{b}})
+			      - (\dotp{\va{a}}{\va{b}})(\dotp{\va{a}}{\va{b}}),\nonumber
+			                                                                                                            & = (\dotp{\va{a}}{\va{a}})(\dotp{\va{b}}{\va{b}}),\nonumber \\
+			      \Aboxedmain{(\dotp{\va{a}}{\va{b}})^{2} + \dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{a}}{\va{b}})} & = \abs{\va{a}}^{2}\abs{\va{a}}^{2}.}\label{eq:res-4c}
+		      \end{align}
+
 		\item \(\crossp{\dotp{(\crossp{\vb{a}}{\vb{b}})}{(\crossp{\vb{b}}{\vb{c}})}}{(\crossp{\vb{b}}{\vb{a}})} = \bigr(\dotp{\vb{a}}{(\crossp{\vb{b}}{\vb{c}}})\bigl)^{2}\),
+
+		      \startsolution
+
+		      Calculamos los productos vectoriales correspondientes,
+
+		      \begin{align}
+			      \crossp{\va{a}}{\va{b}} & = \varepsilon_{ijl}a_{i}b_{j}\eu{l},\label{eq:ab-cross}  \\
+			      \crossp{\va{b}}{\va{c}} & = \varepsilon_{mnp}b_{m}c_{n}\eu{p}, \label{eq:bc-cross} \\
+			      \crossp{\va{c}}{\va{a}} & = \varepsilon_{rst}c_{r}a_{s}\eu{t}.\label{eq:ca-cross}
+		      \end{align}
+
+		      Calculamos el producto vectorial de las \zcref{eq:bc-cross,eq:ca-cross},
+
+		      \begin{align*}
+			      \crossp{(\crossp{\va{b}}{\va{c}})}{(\crossp{\va{c}}{\va{a}})} & =
+			      \varepsilon_{mnp}b_{m}c_{n}\varepsilon_{rst}c_{r}a_{s}\crossp{\eu{p}}{\eu{t}},      \\
+			                                                                    & = \varepsilon_{mnp}
+			      \varepsilon_{ptk}
+			      \varepsilon_{rst}
+			      b_{m}c_{n}c_{r}a_{s}\ek,                                                            \\
+			                                                                    & = \varepsilon_{rst}
+			      \varepsilon_{kpt}
+			      \varepsilon_{mnp}
+			      b_{m}c_{n}c_{r}a_{s}\ek.
+		      \end{align*}
+
+
+		      Usando la identidad \(\varepsilon \mhyphen \delta\),
+
+		      \begin{equation*}
+			      \varepsilon_{rst}\varepsilon_{kpt} = \delta_{rk}\delta_{sp}
+			      - \delta_{rp}\delta_{sk}.
+		      \end{equation*}
+
+		      Por lo que,
+
+		      \begin{align*}
+			      \crossp{(\crossp{\va{b}}{\va{c}})}{(\crossp{\va{c}}{\va{a}})} & =
+			      (\delta_{rk}\delta_{sp} - \delta_{rp}\delta_{sk})\varepsilon_{mnp}
+			      b_{m}c_{n}c_{r}a_{s}\ek,                                          \\
+			                                                                    & =
+			      \delta_{rk}\delta_{sp}\varepsilon_{mnp}b_{m}c_{n}c_{r}a_{s}\ek
+			      - \delta_{rp}\delta_{sk}\varepsilon_{mnp}b_{m}c_{n}c_{r}a_{s}\ek, \\
+			      \dotp{(\crossp{\va{b}}{\va{c}})}{(\crossp{\va{b}}{\va{a}})}   & =
+			      \varepsilon_{mns}b_{m}c_{n}c_{k}a_{s}\ek
+			      - \varepsilon_{mnr}b_{m}c_{n}c_{r}a_{k}\ek.
+		      \end{align*}
+
+		      Finalmente calculamos el producto punto del resultado anterior con la \zcref{eq:ab-cross},
+
+		      \begin{align*}
+			      \crossp{\dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{b}}{\va{c}})}}{(\crossp{\va{b}}{\va{a}})} & = (\varepsilon_{ijl}a_{i}b_{j}\eu{l}) \cdot
+			      (\varepsilon_{mns}b_{m}c_{n}c_{k}a_{s}\ek
+			      - \varepsilon_{mnr}b_{m}c_{n}c_{r}a_{k}\ek),                                                                                                  \\
+                                                                                                            &= \varepsilon_{ijl}\varepsilon_{mns}a_{i}b_{j}b_{m}c_{n}c_{k}a_{s}
+                                                                                                            \crossp{\eu{l}}{\ek}
+                                                                                                            - \varepsilon_{ijl}\varepsilon_{mnr}a_{i}b_{j}b_{m}c_{n}c_{r}a_{k}
+                                                                                                            \crossp{\eu{l}}{\ek},\\
+                                                                                                            &= \varepsilon_{ijl}\varepsilon_{mns}a_{i}b_{j}b_{m}c_{n}c_{l}a_{s}
+                                                                                                            - \varepsilon_{ijl}\varepsilon_{mnr}a_{i}b_{j}b_{m}c_{n}c_{r}a_{l},\\
+                                                                                                            &= a_{i}(\varepsilon_{ijl}b_{j}c_{l})(\varepsilon_{mns}b_{m}c_{n})a_{s}
+                                                                                                            - (\varepsilon_{ijl}a_{i}b_{j})a_{l}(\varepsilon_{mnr}b_{m}c_{n})c_{r},\\
+                                                                                                            &= a_{i}(\crossp{\va{b}}{\va{c}})_{i}(\crossp{\va{b}}{\va{c}})_{s}a_{s}
+                                                                                                            - (\crossp{\va{a}}{\va{b}})_{l}a_{l}(\crossp{\va{b}}{\va{c}})_{r}c_{r},\\
+                                                                                                            &= [\dotp{\va{a}}{(\crossp{\va{b}}{\va{c}})}]
+                                                                                                            [\dotp{(\crossp{\va{b}}{\va{c}})}{\va{a}}]
+                                                                                                            - [\dotp{(\crossp{\va{a}}{\va{b}})}{\va{a}}]
+                                                                                                            [\dotp{(\crossp{\va{b}}{\va{c}})}{\va{c}}].
+		      \end{align*}
+
+          Pero \([\dotp{\va{a}}{(\crossp{\va{b}}{\va{c}})}] = [\dotp{(\crossp{\va{b}}{\va{c}})}{\va{a}}]\) y 
+          \([\dotp{(\crossp{\va{a}}{\va{b}})}{\va{a}}] = [\dotp{(\crossp{\va{b}}{\va{c}})}{\va{c}}] = 0\),
+          por lo tanto
+
+          \begin{empheq}[box=\mainresult]{equation}
+            \crossp{\dotp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{b}}{\va{c}})}}{(\crossp{\va{b}}{\va{a}})} = [\dotp{\va{a}}{(\crossp{\va{b}}{\va{c}})}]^{2}.
+            \label{eq:res-4d}
+          \end{empheq}
+
 		\item \(\crossp{(\crossp{\vb{a}}{\vb{b}})}{(\crossp{\vb{c}}{\vb{d}})} =
 		      [\dotp{\vb{a}}{(\crossp{\vb{c}}{\vb{d}})}]\vb{b} - [\dotp{\vb{b}}{(\crossp{\vb{c}}{\vb{d}})}]\vb{a}\)
+
+          \startsolution
+
+          Tenemos que
+
+          \begin{align}
+            \crossp{(\crossp{\va{a}}{\va{b}})}{(\crossp{\va{c}}{\va{d}})} &= 
+            (\varepsilon_{ijk}a_{i}b_{j}\ek) \mul
+            (\varepsilon_{pqm}c_{p}d_{q}\eu{m}),\nonumber\\
+                                                                          &= \varepsilon_{ijk}\varepsilon_{smk}\varepsilon_{pqm}
+            a_{i}b_{j}c_{p}d_{q}\eu{s},\nonumber\\
+                                                                            &= 
+                                                                            \delta_{im}\delta_{js}\varepsilon_{pqm}a_{i}b_{j}c_{p}d_{q}\eu{s}
+                                                                            - \delta_{is}\delta_{jm}\varepsilon_{pqm}a_{i}b_{j}c_{p}d_{q}\eu{s},\nonumber\\
+                                                                            &= \varepsilon_{pqi}a_{i}b_{j}c_{p}d_{q}\ej
+                                                                            - \varepsilon_{pqj}a_{s}b_{j}c_{p}d_{q}\eu{s},\nonumber\\
+                                                                            &= 
+                                                                            a_{i}(\varepsilon_{pqi}c_{p}d_{q})b_{j}\ej
+                                                                            - b_{j}(\varepsilon_{pqj}c_{p}d_{q})a_{s}\eu{s},\nonumber\\
+                                                                            &=
+                                                                            a_{i}(\crossp{\va{c}}{\va{d}})_{i}\va{b}
+                                                                            - b_{j}(\crossp{\va{c}}{\va{d}})_{j}\va{a},\nonumber\\
+            \Aboxedmain{&= [\dotp{\va{a}}{(\crossp{\va{c}}{\va{d}})}]\va{b}
+            - [\dotp{\va{b}}{(\crossp{\va{c}}{\va{d}})}]\va{a}.}
+            \label{eq:res-4e}
+          \end{align}
 	\end{enumerate}
 \end{problema}
 \end{document}
