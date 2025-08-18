@@ -15,10 +15,109 @@
 	\begin{enumerate}
 		\item La base recíproca \((\evc{1}, \evc{2}, \evc{3})\) en términos de
 		      la base ortonormal \((\uveci, \uvecj, \uveck)\),
+		      \startsolution
+
+		      Recordamos que la base recíproca en términos de la base original está dada por
+
+		      \begin{equation*}
+			      \vect{e_{1}} = \dfrac{\crossp{\vect{e_{2}}}{\vect{e_{3}}}}{V},\qquad
+			      \vect{e_{2}} = \dfrac{\crossp{\vect{e_{3}}}{\vect{e_{1}}}}{V},\qquad
+			      \vect{e_{3}} = \dfrac{\crossp{\vect{e_{1}}}{\vect{e_{2}}}}{V},
+		      \end{equation*}
+
+		      con \(V = \dotp{\vect{e_{3}}}{\crossp{\vect{e_{1}}}{\vect{e_{1}}}}\)
+
+		      Calculando \(V\),
+
+		      \begin{align*}
+			      V            & = \vect{e_{3}} \cdot
+			      \begin{vNiceMatrix}[baseline=2]
+				      \uveci & \uvecj & \uveck \\
+				      -1     & -1     & 0      \\
+				      1      & 2      & -2
+			      \end{vNiceMatrix},                                                        \\
+			                   & = \vect{e_{3}} \cdot [\uveci(2 - 0) - \uvecj(2 - 0) + \uveck(-2 + 1)], \\
+			                   & = (2, 1, 1) \cdot (2, -2, -1),                                         \\
+			      \Aboxedsec{V & = 1.}
+		      \end{align*}
+
+
+		      El recíproco de \(\vec{e}^{1}\) queda
+
+		      \begin{align*}
+			      \evc{1}             & =
+			      \begin{vNiceMatrix}
+				      \uveci & \uvecj & \uveck \\
+				      1      & 2      & -2     \\
+				      2      & 1      & 1
+			      \end{vNiceMatrix} =
+			      \uveci(2 + 2) - \uvecj(1 + 4) + \uveck(1 - 4),        \\
+			      \Aboxedmain{\evc{1} & = 4\uveci - 5\uvecj - 3\uveck.}
+		      \end{align*}
+
+		      Análogamente,
+
+
+		      \begin{align*}
+			      \Rightarrow\; \evc{2} & =
+			      \begin{vNiceMatrix}
+				      \uveci & \uvecj & \uveck \\
+				      2      & 1      & 1      \\
+				      -1     & -1     & 0
+			      \end{vNiceMatrix} =
+			      \uveci(0 + 1) - \uvecj(0 + 4) + \uveck(-2 + 1),        \\
+			      \Aboxedmain{\evc{2}   & = \uveci - \uvecj - \uveck,}   \\
+			      \Rightarrow\; \evc{3} & =
+			      \begin{vNiceMatrix}
+				      \uveci & \uvecj & \uveck \\
+				      -1     & -1     & 0      \\
+				      1      & 2      & -2
+			      \end{vNiceMatrix} =
+			      \uveci(2 - 0) - \uvecj(2 - 0) + \uveck(-2 + 1),        \\
+			      \Aboxedmain{\evc{3}   & = 2\uveci - 2\uvecj - \uveck.}
+		      \end{align*}
+
 		\item Las magnitudes \(\nev{1}, \nev{2}, \nev{3}, \nevc{1}, \nevc{2}\) y \(\nevc{3}\),
+
+		      La magnitud de los vectores de la base original es:
+
+		      \begin{empheq}[box = \mainresult]{align*}
+			      \nev{1} & = \sqrt{(-1)^{2} + (-1)^{2}} = \sqrt{2},         \\
+			      \nev{2} & = \sqrt{(1)^{2} + (2)^{2} + (-2)^{2}} = 3,       \\
+			      \nev{3} & = \sqrt{(2)^{2} + (1)^{2} + (1)^{2}} = \sqrt{6}.
+		      \end{empheq}
+
+		      Mientras que la magnitud de los vectores de la base recíproca son
+
+		      \begin{empheq}[box = \mainresult]{align*}
+			      \nev{1} & = \sqrt{(4)^{2} + (-5)^{2} + (-3)^{2}} = \sqrt{50},         \\
+			      \nev{2} & = \sqrt{(1)^{2} + (-1)^{2} + (-1)^{2}} = \sqrt{3},       \\
+			      \nev{3} & = \sqrt{(2)^{2} + (-2)^{2} + (-1)^{2}} = 3.
+		      \end{empheq}
+
 		\item Los componentes covariantes \(v_{1}, v_{2}\) y \(v_{3}\) de un vector
 		      \(\vect{v}\) si sus componentes contravariantes están dados por
 		      \(v^{1} = 1, v^{2} = 2, v^{3} = 3\).
+
+		      \startsolution
+
+		      Para determinar las componentes covariantes del vector \(\vect{v}\)
+		      recordamos que están dadas por
+
+		      \begin{equation*}
+			      v_{i} = \delta_{ij}v^{j}.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{align*}
+			      \Rightarrow\; v_{1} & = \delta_{11}v^{1} + \delta_{12}v^{2} + \delta_{13}v^{3}, \\
+			      \Aboxedmain{v_{1}   & = 1.}                                                     \\
+			      \Rightarrow\; v_{2} & = \delta_{21}v^{1} + \delta_{22}v^{2} + \delta_{23}v^{3}, \\
+			      \Aboxedmain{v_{2}   & = 1.}                                                     \\
+			      \Rightarrow\; v_{1} & = \delta_{31}v^{1} + \delta_{32}v^{2} + \delta_{33}v^{3}, \\
+			      \Aboxedmain{v_{3}   & = 1.}
+		      \end{align*}
 	\end{enumerate}
 \end{problema}
 \end{document}
