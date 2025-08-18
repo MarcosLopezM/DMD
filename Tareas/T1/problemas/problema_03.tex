@@ -10,5 +10,89 @@
 		\ev{2} = \uveci + 2\uvecj + 2\uveck,\quad
 		\ev{3} = 2\uveci - \uvecj + \uveck.
 	\end{equation*}
+
+	\startsolution
+
+	Tenemos que el primer vector de la base ortonormal es \(\va{u}_{1} = \tfrac{\va{e}_{1}}{\norm{\va{e}_{1}}}\), calculamos entonces la norma de \({\va{e}_{1}}\),
+
+	\begin{equation*}
+		\norm{{\va{e}_{1}}} = \sqrt{1^{2} + 1^{2}} = \sqrt{2}.
+	\end{equation*}
+
+	Entonces,
+
+	\begin{empheq}[box=\mainresult]{equation*}
+		\va{u}_{1} = \dfrac{1}{\sqrt{2}}\uveci + \dfrac{1}{\sqrt{2}}\uveck.
+	\end{empheq}
+
+	Para el segundo vector de la base ortonormal,
+	primero calculamos la proyección de \(\va{e}_{2}\)
+	sobre \(\va{u}_{1}\), i.e.
+
+	\begin{align*}
+		\text{proj}_{\va{u}_{1}}(\va{e}_{2})            & = (\dotp{\va{u}_{1}}{\va{e}_{2}})\va{u}_{1},                                   \\
+		                                                & = \Bigr[1\cdot\dfrac{1}{\sqrt{2}} + 2\cdot\dfrac{1}{\sqrt{2}}\Bigl]\va{u}_{1}, \\
+		                                                & = \dfrac{3}{\sqrt{2}}\va{u}_{1},                                               \\
+		\Aboxedsec{\text{proj}_{\va{u}_{1}}(\va{e}_{2}) & = \tfrac{3}{2}\uveci + \tfrac{3}{2}\uveck.}
+	\end{align*}
+
+	El segundo vector de la base es \(\va{u}_{2} = \tfrac{\va{w}_{2}}{\norm{\va{w}_{2}}}\), tal que
+
+	\begin{align*}
+		\va{w}_{2}            & = \va{e}_{2} - \text{proj}_{\va{u}_{1}}(\va{e}_{2}),                                \\
+		                      & = \uveci + 2\uveck + 2\uveck - \Bigr(\tfrac{3}{2}\uveci - \tfrac{3}{2}\uveck\Bigl), \\
+		\Aboxedsec{\va{w}_{2} & = -\tfrac{1}{2}\uveci + 2\uvecj + \tfrac{1}{2}\uveck.}
+	\end{align*}
+
+	Cuya norma es
+
+	\begin{align*}
+		\norm{\va{w}_{2}}            & = \sqrt{(-\tfrac{1}{2})^{2} + (2)^{2} + (\tfrac{1}{2})^{2}}, \\
+		\Aboxedsec{\norm{\va{w}_{2}} & = \dfrac{3}{\sqrt{2}}.}
+	\end{align*}
+
+	Entonces,
+
+	\begin{align*}
+		\va{u}_{2}             & = \dfrac{-\tfrac{1}{2}\uveci + 2\uvecj + \tfrac{1}{2}\uveck}{\tfrac{3}{\sqrt{2}}},      \\
+		\Aboxedmain{\va{u}_{2} & = -\dfrac{\sqrt{2}}{6}\uveci + \dfrac{2\sqrt{2}}{3}\uvecj + \dfrac{\sqrt{2}}{6}\uveck.}
+	\end{align*}
+
+	Finalmente, para encontrar \(\va{u}_{3}\), primero calculamos la proyección
+	de \(\va{e}_{3}\) sobre \(\va{u}_{1}\) y \(\va{u}_{2}\),
+
+	\begin{align*}
+		\Rightarrow\; \text{proj}_{\va{u}_{1}}(\va{e}_{3}) & = (\dotp{\va{e_{3}}}{\va{u}_{1}})\va{u}_{1},                                                                                                           \\
+		                                                   & = \Bigr[2\cdot\tfrac{1}{\sqrt{2}} + 1\cdot\tfrac{1}{\sqrt{2}}\Bigl]\va{u}_{1} = \dfrac{3}{\sqrt{2}}\va{u}_{1},                                         \\
+		\Aboxedsec{\text{proj}_{\va{u}_{1}}(\va{e}_{3})    & = \dfrac{3}{2}\uveci + \dfrac{3}{2}\uveck.},                                                                                                           \\
+		\Rightarrow\; \text{proj}_{\va{u}_{2}}(\va{e}_{3}) & = (\dotp{\va{e_{3}}}{\va{u}_{2}})\va{u}_{2},                                                                                                           \\
+		                                                   & = \Bigr[2\cdot(-\tfrac{\sqrt{2}}{6}) - 1\cdot(-\tfrac{2\sqrt{2}}{3}) + 1\cdot(\tfrac{\sqrt{2}}{6}) \Bigl]\va{u}_{2} = -\dfrac{5\sqrt{2}}{6}\va{u}_{2}, \\
+		\Aboxedsec{\text{proj}_{\va{u}_{2}}(\va{e}_{3})    & = \dfrac{5}{18}\uveci - \dfrac{10}{9}\uvecj - \dfrac{5}{18}\uveck.}
+	\end{align*}
+
+	Por lo que, \(\va{w}_{3}\) es
+
+	\begin{align*}
+		\va{w}_{3}            & = \va{e}_{3} - \text{proj}_{\va{u}_{1}}(\va{e}_{3})  - \text{proj}_{\va{u}_{2}}(\va{e}_{3}),                                                                     \\
+		                      & = 2\uveci - \uvecj + \uveck + \Bigr[\tfrac{3}{2}\uveci + \tfrac{3}{2}\uveck\Bigl] + \Bigr[\tfrac{5}{18}\uveci - \tfrac{10}{9}\uvecj - \tfrac{5}{18}\uveck\Bigl], \\
+		                      & = \Bigr[2 - \tfrac{3}{2} - \tfrac{5}{18}\Bigl]
+		+ \Bigr[-1 + \tfrac{10}{9}\Bigl] + \Bigr[1 - \tfrac{3}{2} + \tfrac{5}{18}\Bigl],                                                                                                         \\
+		\Aboxedsec{\va{w}_{3} & = \dfrac{2}{9}\uveci + \dfrac{1}{9}\uvecj - \dfrac{2}{9}\uveck.}
+	\end{align*}
+
+	Cuya norma es
+
+	\begin{align*}
+		\norm{\va{w}_{3}}            & = \sqrt{\Bigr(\tfrac{2}{9}\Bigl)^{2} + \Bigr(\tfrac{1}{9}\Bigl)^{2} + \Bigr(-\dfrac{2}{9}\Bigl)^{2}}, \\
+		\Aboxedsec{\norm{\va{w}_{3}} & = \dfrac{1}{3}.}
+	\end{align*}
+
+	Por lo que \(\va{u}_{3}\) es
+
+	\begin{align*}
+		\va{u}_{3}             & = \dfrac{\tfrac{2}{9}\uveci + \tfrac{1}{9}\uvecj - \tfrac{2}{9}\uveck}{\tfrac{1}{9}}, \\
+		\Aboxedmain{\va{u}_{3} & = \dfrac{2}{3}\uveci + \dfrac{1}{3}\uvecj - \dfrac{2}{3}\uveck.}
+	\end{align*}
+
 \end{problema}
 \end{document}
