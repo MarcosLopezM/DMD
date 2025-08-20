@@ -1,0 +1,18 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}
+	Sean \(\vb{a}\) y \(\vb{b}\) vectores que son función del vector
+	posición \(\vb{x}\), también con primera y segunda derivadas
+	continuas. Sean \(F\) y \(G\) funciones escalares de la posición \(\vb{x}\),
+	también con primera y segunda derivadas continuas. Usando notación
+	de índices, muestra que:
+
+	\begin{enumerate}
+		\item \(\dotp{\nabla}{(F\vb{a})} = \dotp{\vb{a}}{\nabla F} + F\dotp{\nabla}{\vb{a}}\).
+		\item \(\crossp{\nabla}{(F\vb{a})} = F\crossp{\nabla}{\vb{a}} - \crossp{\vb{a}}{\nabla F}\).
+		\item \(\nabla(\dotp{\vb{a}}{\vb{b}}) = \dotp{\vb{a}}{\nabla \vb{b}} + \dotp{\vb{b}}{\nabla\vb{a}} + \crossp{\vb{a}}{(\crossp{\nabla}{\vb{b}})} + \crossp{\vb{b}}{(\crossp{\nabla}{\vb{a}})}\).
+		\item \(\dotp{\nabla}{(\crossp{\vb{a}}{\vb{b}})} = \dotp{\crossp{\nabla}{\vb{a}}}{\vb{b}} - \dotp{\crossp{\nabla}{\vb{b}}}{\vb{a}}.\)
+	\end{enumerate}
+\end{problema}
+\end{document}

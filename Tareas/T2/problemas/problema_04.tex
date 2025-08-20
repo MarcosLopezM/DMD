@@ -1,0 +1,40 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}
+	Sean el vector \(\vb{a}\) y los tensores de segundo orden
+	\(\vb{S}\) y \(\vb{T}\) con los siguientes componentes:
+
+	\begin{equation*}
+		\vb{a} =
+		\begin{bNiceMatrix}
+			2  \\
+			-1 \\
+			4
+		\end{bNiceMatrix}^{T},\quad
+		[S] =
+		\begin{bNiceMatrix}
+			-1 & 0 & 5 \\
+			3  & 7 & 4 \\
+			9  & 8 & 6
+		\end{bNiceMatrix},\quad
+		[T] =
+		\begin{bNiceMatrix}
+			8  & -1 & 6  \\
+			5  & 4  & 9  \\
+			-7 & 8  & -2
+		\end{bNiceMatrix}.
+	\end{equation*}
+
+	Determina:
+
+	\begin{enumerate}
+		\item \(\tr{(\vb{S})}\).
+		\item \(\vb{S}\dyad \vb{S}\).
+		\item \(\vb{S}\dyad\vb{S}^{T}\).
+		\item \(\dotp{\vb{A}}{\vb{S}}\).
+		\item \(\dotp{\vb{S}}{\vb{A}}\).
+		\item \(\dotp{\dotp{\vb{S}}{\vb{T}}}{\vb{A}}\).
+	\end{enumerate}
+\end{problema}
+\end{document}
