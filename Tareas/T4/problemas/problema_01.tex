@@ -27,7 +27,137 @@
 
 	\begin{figure}[htb]
 		\centering
-		\includegraphics[width=.45\textwidth]{figs/problema02-001.jpg}
+		\includegraphics[scale=.4]{figs/problema02-001.jpg}
 	\end{figure}
 \end{problema}
+
+\startsolution
+
+\section{Inciso (a)}
+Sabemos que el vector de esfuerzos está definido como:
+
+\begin{equation*}
+	\dbloverline{T} = \dbloverline{\sigma}\cdot \op{u}.
+\end{equation*}
+
+Primero determinamos el vector a la superficie cilíndrica, i.e.
+
+\begin{equation*}
+	\op{n} = \dfrac{\nabla{f}}{\norm{\nabla{f}}}
+\end{equation*}
+
+con \(f\) la superficie.
+
+Calculmos \(\nabla{f}\),
+
+\begin{equation}
+	\nabla{(x_{2}^{2} + x_{3}^{2} - 4)} = 2x_{2}\eu{2} + 2x_{3}\eu{3}.
+	\label{eq:gradient-f}
+\end{equation}
+
+y su norma:
+
+\begin{equation}
+	\norm{\nabla{f}} = \norm{(2x_{2})^{2} + (2x_{3})^{2}}.
+	\label{eq:norm-gradient}
+\end{equation}
+
+Evaluando el punto \(\boldvect\vect{P}\) en las \zcref{eq:gradient-f,eq:norm-gradient},
+el vector normal es
+
+\begin{equation*}
+	\op{n} = \dfrac{1}{2}(\eu{2} + \sqrt{3}\eu{3}).
+\end{equation*}
+
+Evaluamos \(\dbloverline{\sigma}\) en \(\boldvect\vect{P}\),
+
+\begin{equation*}
+	\dbloverline{\sigma} = \begin{pNiceMatrix}
+		6 & 5         & 0         \\
+		5 & 0         & 2\sqrt{3} \\
+		0 & 2\sqrt{3} & 0         \\
+	\end{pNiceMatrix}
+\end{equation*}
+
+Por lo que el tensor de esfuerzos es
+
+\begin{align}
+	\vect{T}             & = \begin{pNiceMatrix}
+		                         6 & 5         & 0         \\
+		                         5 & 0         & 2\sqrt{3} \\
+		                         0 & 2\sqrt{3} & 0         \\
+	                         \end{pNiceMatrix}
+	\begin{pNiceMatrix}
+		0                            \\
+		\tfrac{1}{2}                 \\
+		\tfrac{\sqrt{3}}{2}\nonumber \\
+	\end{pNiceMatrix},                                                              \\
+	                     & = \begin{pNiceMatrix}
+		                         0 + \tfrac{5}{2} + 0                             \\
+		                         0 + 0 + 2\sqrt{3}\bigl(\tfrac{\sqrt{3}}{2}\bigr) \\
+		                         0 + 2\sqrt{3}\bigl(\tfrac{1}{2}\bigr) + 0        \\
+	                         \end{pNiceMatrix}, \nonumber \\
+	\Aboxedmain{\vect{T} & = \begin{pNiceMatrix}
+			                         \tfrac{5}{2} \\
+			                         3            \\
+			                         \sqrt{3}     \\
+		                         \end{pNiceMatrix}.}\label{eq:stress-vector}
+\end{align}
+
+\section{Inciso (b)}
+
+El esfuerzo normal está dado por:
+
+\begin{equation*}
+	\vect{T} \cdot \op{n} = (\dbloverline{\sigma}\cdot \op{n})\cdot \op{n},
+\end{equation*}
+
+i.e.
+
+\begin{align*}
+	\vect{T}\cdot \op{n}            & = \begin{pNiceMatrix}
+		                                    \tfrac{5}{2} & 3 & \sqrt{3} \\
+	                                    \end{pNiceMatrix}\cdot \begin{pNiceMatrix}
+		                                                           0 & \tfrac{1}{2} & \tfrac{\sqrt{3}}{2} \\
+	                                                           \end{pNiceMatrix},\nonumber \\
+	                                & = \tfrac{3}{2} + \tfrac{3}{2},\nonumber                                       \\
+	\Aboxedsec{\vect{T}\cdot \op{n} & = 3.}
+\end{align*}
+
+Por lo que el esfuerzo normal es
+
+\begin{empheq}[box = \mainresult]{equation}
+	\vect{T}_{n} = \dfrac{3}{2}\eu{2} + \dfrac{3\sqrt{3}}{2}\eu{3}.
+	\label{eq:normal-stress}
+\end{empheq}
+
+\section{Inciso (c)}
+
+El esfuerzo tangente está definido como
+
+\begin{equation*}
+	\vect{T}_{t} = \vect{T} - \vect{T}_{n}.
+\end{equation*}
+
+Así, por las \zcref{eq:stress-vector,eq:normal-stress},
+
+\begin{align*}
+	\vect{T}_{t}             & = \begin{pNiceMatrix}
+		                             \tfrac{5}{2} \\
+		                             3            \\
+		                             \sqrt{3}     \\
+	                             \end{pNiceMatrix}
+	-
+	\begin{pNiceMatrix}
+		0                    \\
+		\tfrac{3}{2}         \\
+		\tfrac{3\sqrt{3}}{2} \\
+	\end{pNiceMatrix},                                                \\
+	                         & = \begin{pNiceMatrix}
+		                             \tfrac{5}{2}         \\
+		                             \tfrac{3}{2}         \\
+		                             -\tfrac{\sqrt{3}}{2} \\
+	                             \end{pNiceMatrix},                   \\
+	\Aboxedmain{\vect{T}_{t} & = \dfrac{1}{2}(5 \eu{1} + 3 \eu{2} - \sqrt{3}\eu{3}).}
+\end{align*}
 \end{document}
