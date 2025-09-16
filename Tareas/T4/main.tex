@@ -10,6 +10,9 @@
 \semester{2026--1}
 \subject{Dinámica de Medios Deformables}
 
+\usepackage{chngcntr}
+\counterwithout{equation}{section}
+
 % New notation for matrices
 \makeatletter
 \newcommand{\dbloverline}[1]{\overline{\dbl@overline{#1}}}
@@ -31,6 +34,16 @@
   \scriptscriptfont\fi\fi\fi 3
 }
 \makeatother
+
+\makeatletter
+\renewcommand\@seccntformat[1]{}
+\makeatother
+
+\newcommand*{\eu}[1]{\uvec{e}_{#1}}
+
+\NiceMatrixOptions{
+  cell-space-limits = 1.2pt
+}
 
 \begin{document}
 \maketitle
