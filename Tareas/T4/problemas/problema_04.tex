@@ -16,5 +16,74 @@
 		\item Si la deformación es pequeña (es decir, si aproximamos linealmente).
 		      ¿Cuál es la forma de la matriz que representa al tensor de deformación?
 	\end{enumerate}
+	\startsolution
+
+	\section{Inciso (a)}
+	Los puntos del plano circular centrado en el origen, están dados por:
+
+	\begin{equation*}
+		X^{2} + Y^{2} = R^{2}.
+	\end{equation*}
+
+	Y sabemos que la elipse es un reescalamiento de éste, por lo que, el mapeo es:
+
+	\begin{equation}
+		\begin{aligned}
+			x & = aX, \\
+			y & = bY, \\
+			z & = Z.
+		\end{aligned}
+		\label{eq:mapping}
+	\end{equation}
+
+	\section{Inciso (b)}
+
+	Para obtener los jacobianos de la transformación, primero debemos calcular el vector
+	de desplazamiento \(\vect{u}\),
+
+	\begin{equation*}
+		\vect{u} = \vect{x} - \vect{X},
+	\end{equation*}
+
+	tal que
+
+	\begin{align*}
+		\vect{u} & = \Bigl(aX - X\Bigr)\eu{x} + \Bigl(bY - Y\Bigr)\eu{y} + (Z - Z)\eu{z}, \\
+		\vect{u} & = \Bigl(a - 1\Bigr)X\eu{x} + \Bigl(b - 1\Bigr)Y\eu{y}.
+	\end{align*}
+
+	Por lo que el jacobiano de la transformación es
+
+	\begin{empheq}[box = \mainresult]{equation}
+		\nabla{\vect{u}} =
+		\begin{pNiceMatrix}
+			a - 1 & 0     & 0 \\
+			0     & b - 1 & 0 \\
+			0     & 0     & 0 \\
+		\end{pNiceMatrix}
+		\label{eq:jacobian}
+	\end{empheq}
+
+	Mientras que el jacobiano inverso de la transformación no se puede calcular, ya que
+	el determinante de la \zcref{eq:jacobian} es cero.
+
+	\section{Inciso (c)}
+
+	Para deformaciones pequeñas sabemos que el tensor de deformación es
+
+	\begin{equation*}
+		\dbloverline{E} = \nabla{\vect{u}}.
+	\end{equation*}
+
+	Entonces,
+
+	\begin{empheq}[box = \mainresult]{equation*}
+		\dbloverline{E} =
+		\begin{pNiceMatrix}
+			a - 1 & 0     & 0 \\
+			0     & b - 1 & 0 \\
+			0     & 0     & 0 \\
+		\end{pNiceMatrix}
+	\end{empheq}
 \end{problema}
 \end{document}
