@@ -6,4 +6,32 @@
 	donde \(x_{i}x_{i} = r^{2}\) y \(A\) es una constante arbitraria,
 	satisface la ecuación de continuidad para un flujo incompresible.
 \end{problema}
+
+\startsolution
+
+La ecuación de continuidad en notación de índices se ve como:
+
+\begin{equation*}
+	\pdv{\rho}{t} + \pdv{(\rho v_{i})}{x_{i}} = 0.
+\end{equation*}
+
+Reescribiendo \(v_{i} = \dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\), entonces,
+
+\begin{align*}
+	\pdv{\rho}{t} + \pdv*{\Biggl[\rho \Bigl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Bigr)\Biggr]}{x_{i}} & = \pdv{\rho}{t} + \pdv{\rho}{x_{i}}\Bigl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Bigr) +
+	\dfrac{\rho A}{(x_{j}x_{j})^{3}}\Biggl[\pdv{x_{i}}{x_{i}}(x_{j}x_{j})^{3/2} - \dfrac{3}{2}x_{i}(x_{j}x_{j})^{1/2}\Bigl(\pdv{x_{j}}{x_{i}}x_{j} + x_{j}\pdv{x_{j}}{x_{i}}\Bigr)\Biggr], \\
+	                                                                                                & = \pdv{\rho}{t} + \pdv{\rho}{x_{i}}\Bigl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Bigr) +
+	\dfrac{\rho A}{(x_{j}x_{j})^{3}}\Biggl[3(x_{j}x_{j})^{3/2} - \dfrac{3}{2}x_{i}(x_{j}x_{j})^{1/2}(\delta_{ij}x_{j} + x_{j}\delta_{ij})\Biggr],                                          \\
+	                                                                                                & = \pdv{\rho}{t} + \pdv{\rho}{x_{i}}\Bigl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Bigr) +
+	\dfrac{\rho A}{(x_{j}x_{j})^{3}}\Biggl[3(x_{j}x_{j})^{3/2} - 3(x_{i}x_{i})(x_{j}x_{j})^{1/2}\Biggr],                                                                                   \\
+	                                                                                                & = \pdv{\rho}{t} + \pdv{\rho}{x_{i}}\Bigl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Bigr) +
+	\dfrac{\rho A}{(x_{j}x_{j})^{3}}\Biggl[3(x_{j}x_{j})^{3/2} - 3(x_{j}x_{j})^{3/2}\Biggr],                                                                                               \\
+	                                                                                                & = \pdv{\rho}{t} + \pdv{\rho}{x_{i}}\Biggl(\dfrac{Ax_{i}}{(x_{j}x_{j})^{3/2}}\Biggr).
+\end{align*}
+
+Por lo tanto,
+
+\begin{empheq}[box = \mainresult]{equation*}
+	\pdv{\rho}{t} + \nabla \cdot{(\rho \vect{v})} = 0.
+\end{empheq}
 \end{document}
