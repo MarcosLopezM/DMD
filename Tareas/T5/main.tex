@@ -1,5 +1,5 @@
 %! TeX program = lualatex
-\documentclass[digital]{fc-hw-template}
+\documentclass[digital, 12pt]{fc-hw-template}
 
 \title{Tarea}
 \author{Marcos López Merino}
@@ -9,6 +9,28 @@
 \group{8280}
 \semester{2026--1}
 \subject{Dinámica de Medios Deformables}
+
+% New notation for matrices
+\makeatletter
+\newcommand{\dbloverline}[1]{\overline{\dbl@overline{#1}}}
+\newcommand{\dbl@overline}[1]{\mathpalette\dbl@@overline{#1}}
+\newcommand{\dbl@@overline}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\overline{#2}$}%
+  \ht\z@=\dimexpr\ht\z@-2\dbl@adjust{#1}\relax
+  \box\z@
+  \ifx#1\scriptstyle\kern-\scriptspace\else
+  \ifx#1\scriptscriptstyle\kern-\scriptspace\fi\fi
+  \endgroup
+}
+\newcommand{\dbl@adjust}[1]{%
+  \fontdimen8
+  \ifx#1\displaystyle\textfont\else
+  \ifx#1\textstyle\textfont\else
+  \ifx#1\scriptstyle\scriptfont\else
+  \scriptscriptfont\fi\fi\fi 3
+}
+\makeatother
 
 \makeatletter
 \renewcommand\@seccntformat[1]{}
