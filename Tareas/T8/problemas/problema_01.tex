@@ -2,13 +2,11 @@
 
 \begin{document}
 \begin{problema}
-	Muestra que, el flujo bidimensional de un fluido Newtoniano incompresible
-	con \(\bm{f}\) conservativa, la vorticidad
-	\(\omega = \tfrac{1}{2} \nabla \mul{\bm{v}}\)
-	satisface la ecuación de difusión
+	Muestra que la \(\mdv{\bm{\mathrm{v}}}{t}\) también puede escribirse como
 
 	\begin{equation*}
-		\rho \mdv{\omega}{t} = \mu \nabla^{2}{\omega}.
+		\mdv{\bm{\mathrm{v}}}{t} = \pdv{\bm{\mathrm{v}}}!{t} + \nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)}
+		- \bm{\mathrm{v}} \mul (\nabla \mul{\bm{\mathrm{v}}}),\quad v^{2} = \bm{\mathrm{v}} \cdot \bm{\mathrm{v}}
 	\end{equation*}
 \end{problema}
 \end{document}
