@@ -11,5 +11,85 @@
 	\end{equation*}
 
 	donde \(\bm{\mathrm{w}} = \nabla \mul{\bm{\mathrm{v}}}\) y \(\nu = \tfrac{\mu}{\rho}\).
+
+	\startsolution
+
+	Partiendo de la ecuación de Cauchy para un fluido compresible,
+
+	\begin{equation*}
+		\mu \nabla^{2}{\vect{v}} + (\lambda + \mu)\nabla{(\nabla \cdot{\vect{v}})} -
+		\nabla{p} + \rho \vect{f} = \rho \mdv{\vect{v}}{t}.
+	\end{equation*}
+
+	Sea \(\vect{f}\) conservativa,
+
+	\begin{equation*}
+		\mu \nabla^{2}{\vect{v}} + (\lambda + \mu)\nabla{(\nabla \cdot{\vect{v}})} -
+		\nabla{p} - \rho \nabla{\phi} = \rho \mdv{\vect{v}}{t}.
+	\end{equation*}
+
+	Calculando el rotacional de la expresión anterior,
+
+	\begin{equation*}
+		\cprod{\nabla}{( \mu \nabla^{2}{\vect{v}} + (\lambda + \mu)\nabla{(\nabla \cdot{\vect{v}})} -
+			\nabla{p} + \rho \vect{f} )} = \rho \cprod{\nabla}{\Bigl(\mdv{\vect{v}}{t}\Bigr)}.
+	\end{equation*}
+
+	Del LHS tenemos que el único término de cero es \(\nabla^{2}{\vect{v}}\),
+	pues el resto son de la forma \(\cprod{\nabla}{\nabla{(\cdots)}} = 0\), así
+
+	\begin{equation}
+		\mu \nabla^{2}{(\cprod{\nabla}{\vect{v}})} = \rho\cprod{\nabla}{\Bigl(\mdv{\vect{v}}{t}\Bigr)}.
+		\label{eq:cauchy-lhs-developed}
+	\end{equation}
+
+	Ahora, desarrollamos el RHS, usando el resultado del problema anterior,
+
+	\begin{align}
+		\cprod{\nabla}{\Bigl(\mdv{\vect{v}}{t}\Bigr)} & = \cprod{\nabla}{\Bigl(\pdv{\vect{v}}{t} + \nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)} -
+		\cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )}\Bigr)},\nonumber                                                                                                                                                            \\
+		                                              & = \pdv*{(\cprod{\nabla}{\vect{v}})}{t} + \cprod{\nabla}{\nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)}} - \cprod{\nabla}{(\cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}}} ))},\nonumber \\
+		                                              & = \pdv*{(\cprod{\nabla}{\vect{v}})}{t} +
+		- \cprod{\nabla}{(\cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )})},\nonumber                                                                                                                                               \\
+		\cprod{\nabla}{\Bigl(\mdv{\vect{v}}{t}\Bigr)} & = \pdv{\vect{w}}{t} - \cprod{\nabla}{(\cprod{\vect{v}}{\vect{w}})},\label{eq:cauchi-rhs}
+	\end{align}
+
+	pues \(\vect{w} = \cprod{\nabla}{\vect{v}}\).
+
+	Usando la siguiente identidad vectorial,
+
+	\begin{equation*}
+		\cprod{\nabla}{(\cprod{\vect{v}}{\vect{w}})} = \vect{v}(\dotprod{\nabla}{\vect{w}}) -
+		\vect{w}(\dotprod{\nabla}{\vect{v}}) + (\dotprod{\vect{w}}{\nabla})\vect{v}
+		- (\dotprod{\vect{v}}{\nabla})\vect{w}.
+	\end{equation*}
+
+	Sustituyendo en la \zcref{eq:cauchi-rhs},
+
+	\begin{align*}
+		\cprod{\nabla}{\Bigl(\mdv{\vect{v}}{t}\Bigr)} & = \pdv{\vect{w}}{t} - \vect{v}(\dotprod{\nabla}{\vect{w}}) +
+		\vect{w}(\dotprod{\nabla}{\vect{v}}) - (\dotprod{\vect{w}}{\nabla})\vect{v}
+		+ (\dotprod{\vect{v}}{\nabla})\vect{w},                                                                                                         \\
+		                                              & = \pdv{\vect{w}}{t} + \dotprod{\vect{v}}{\nabla{\vect{w}}} + \vect{w}(\nabla \cdot{\vect{v}}) -
+		(\dotprod{\vect{w}}{\nabla})\vect{v},                                                                                                           \\
+		                                              & = \pdv{\vect{w}}{t} + (\dotprod{\vect{v}}{\nabla})\vect{w} -
+		(\dotprod{\vect{w}}{\nabla})\vect{v},
+	\end{align*}
+
+	donde \(\nabla \cdot{\vect{w}} = \nabla \cdot{(\cprod{\nabla}{\vect{w}})} = 0\) y
+	\(\nabla \cdot{\vect{v}} = 0\) pues la densidad es constante, i.e. el
+	fluido es incompresible.
+
+	Finalmente, de la sustitución de este resultado en la \zcref{eq:cauchy-lhs-developed},
+	tenemos que la vorticidad es:
+
+	\begin{align}
+		\dfrac{\mu}{\rho} \nabla^{2}{\vect{w}}                               & = \pdv{\vect{w}}{t} + (\dotprod{\vect{v}}{\nabla})
+		\vect{w} - (\dotprod{\vect{w}}{\nabla})\vect{v},\nonumber                                                                                  \\
+		\Aboxedmain{\pdv{\vect{w}}{t} + (\dotprod{\vect{v}}{\nabla})\vect{w} & = (\dotprod{\vect{w}}{\nabla})\vect{v} + \nu \nabla^{2}{\vect{w}},}
+		\label{eq:vorticidad}
+	\end{align}
+
+	con \(\nu = \mu/\rho\).
 \end{problema}
 \end{document}
