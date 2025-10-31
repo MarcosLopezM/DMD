@@ -46,6 +46,6 @@ jobs:
       relative_path: Tareas/T8
       tex_name: main
       out_name: "Tarea8"
-      # send_it: true
+      send_it: true
       email_to: "marcoslm@ciencias.unam.mx"
     secrets: inherit
