@@ -8,5 +8,32 @@
 		\mdv{\bm{\mathrm{v}}}{t} = \pdv{\bm{\mathrm{v}}}!{t} + \nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)}
 		- \bm{\mathrm{v}} \mul (\nabla \mul{\bm{\mathrm{v}}}),\quad v^{2} = \bm{\mathrm{v}} \cdot \bm{\mathrm{v}}
 	\end{equation*}
+
+	\startsolution
+
+	La derivada material es
+
+	\begin{equation}
+		\mdv{\vect{v}}{t} = \pdv{\vect{v}}{t} + \vect{v} \cdot \nabla{\vect{v}}.
+		\label{eq:mdv-p1}
+	\end{equation}
+
+	Para a llegar a la forma deseada usamos la siguiente identidad vectorial
+
+	\begin{align*}
+		\nabla{(v^{2})}                      & = \dotprod{\vect{v}}{\nabla{\vect{v}}} + \dotprod{\vect{v}}{\nabla{\vect{v}}} + \cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )}
+		+ \cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )},                                                                                                                     \\
+		                                     & = 2 \Bigl[\dotprod{\vect{v}}{\nabla{\vect{v}}} + \vect{v}(\cprod{\nabla}{\vect{v}})\Bigr],                                     \\
+		\dotprod{\vect{v}}{\nabla{\vect{v}}} & = \nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)} -
+		\cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )}.
+	\end{align*}
+
+	Sustituyendo este resultado en la \zcref{eq:mdv-p1},
+
+	\begin{empheq}[box = \mainresult]{equation}
+		\mdv{\vect{v}}{t} = \pdv{\vect{v}}{t} + \nabla{\Bigl(\dfrac{v^{2}}{2}\Bigr)} -
+		\cprod{\vect{v}}{( \cprod{\nabla}{\vect{v}} )}.
+		\label{eq:mdv-result-p1}
+	\end{empheq}
 \end{problema}
 \end{document}
