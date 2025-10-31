@@ -10,5 +10,24 @@
 	\begin{equation*}
 		\rho \mdv{\bm{\mathrm{w}}}{t} = \mu \nabla^{2}{\bm{\mathrm{w}}}.
 	\end{equation*}
+
+	\startsolution
+
+	Usando el resultado del problema anterior,
+
+	\begin{equation*}
+		\mdv{\vect{w}}{t} = (\dotprod{\vect{w}}{\nabla})\vect{v} + \dfrac{\mu}{\rho}\nabla^{2}{\vect{w}},
+	\end{equation*}
+
+	donde \(\mdv{\vect{w}}{t} = \pdv{\vect{w}}{t} + \dotprod{\vect{v}}{\nabla{\vect{w}}}\).
+
+	Por otro lado, para un flujo bidimensional \(\vect{w} = w_{z}\uvec{k}\) y
+	\(\vect{v} = v_{x}\uvec{i} + v_{y}\uvec{j}\), por lo que el término
+	\(\dotprod{\vect{w}}{\nabla{\vect{v}}} = 0\). De esta manera, la ecuación
+	de difusión es:
+
+	\begin{empheq}[box = \mainresult]{equation*}
+		\rho \mdv{\vect{w}}{t} = \mu \nabla^{2}{\vect{w}}.
+	\end{empheq}
 \end{problema}
 \end{document}
