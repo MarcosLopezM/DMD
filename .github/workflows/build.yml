@@ -60,3 +60,13 @@ jobs:
       # send_it: true
       email_to: "marcoslm@ciencias.unam.mx"
     secrets: inherit
+
+  build-tarea-10:
+    uses: MarcosLopezM/latex-workflow/.github/workflows/build-pdf.yml@main
+    with:
+      relative_path: Tareas/T10
+      tex_name: main
+      out_name: "Tarea10"
+      # send_it: true
+      email_to: "marcoslm@ciencias.unam.mx"
+    secrets: inherit
