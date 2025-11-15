@@ -1,0 +1,32 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}[3]
+	Una gota de un líquido incompresible y viscoso se extiende sobre una superficie
+	plana y horizontal bajo la acción de la gravedad. Suponemos que la gota se extiende
+	de manera axisimétrica y que los efectos de la tensión superficial son despreciables.
+	El grosor de la gota está dado por \(h = h(r, t)\), con \(r\) como la coordenada radial
+	y \(t\) el tiempo. Siguiendo la aproximación de lubricación se obtiene la evolución de
+	\(h\),
+
+	\begin{equation}
+		\pdv{h}{t} = \dfrac{g}{3\nu r}\pdv*{\Biggl(r h^{3} \pdv{h}{r}\Biggr)}{r},
+	\end{equation}
+
+	con \(g\) como la aceleración gravitacional, \(\nu\) la viscosidad cinemática.
+	Suponemos una solución de similitud dada por \(h(r, t) = \tfrac{A}{t^{n}}f(s)\)
+	con \(s = \dfrac{Br}{t^{m}}\). Consideramos que
+	\(2\pi \int_{0}^{r_{\text{máx}(t)}}\odif[sep-end=\medspace]{r} h(r, t) r = V\),
+	con \(r_{\text{máx}}(t)\) como el radio de la gota extendiéndose y \(V\)
+	como el volumen inicial de la gota.
+
+	\begin{enumerate}
+		\item Determinar \(m = 1/8\), \(n = 1/4\) y una única ecuación diferencial
+		      ordinaria no lineal para \(f(s)\) que solo incluya \(A, B, g/\nu\) y \(s\).
+		\item Resolver la ecuación para \(f\). Considerar que \(f \to 0\) cuando
+		      \(s \to \infty\) y que hay un valor de \(s\) para el cual \(f\) es cero.
+		      Si este valor de \(s\) es \(s_{\text{máx}}\), el radio de la gota
+		      expandiéndose es \(r_{\text{máx}}(t) = s_{\text{máx}} t^{m}/B\).
+	\end{enumerate}
+\end{problema}
+\end{document}
